@@ -66,7 +66,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✓] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [✓] Commit: `Implement add function in Notification repository.`
     -   [✓] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [✓] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,7 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. Alasan penggunaan `RwLock<>` daripada `Mutex<>` pada kasus ini adalah `RwLock<>` dibuat untuk mengakomodasi banyak pembacaan sekaligus, sedangkan `Mutex<>` hanya memperbolehkan satu *thread* yang menggunakan variabel pada suatu waktu tertentu. `RwLock<>` lebih sesuai untuk digunakan karena 'Vec' pada Notification akan dibaca oleh banyak *thread* sekaligus tanpa penulisan.
+2. `lazy_static` digunakan agar inisiasi variabel statis tidak dilakukan pada saat program dimulai, melainkan pada saat variabel tersebut dibutuhkan sehingga variabel akan diinisiasi saat *runtime*. Secara default, variabel statis ataupun non statis pada Rust bersifat *immutable* karena alasan *thread safety* saat melakukan *multi threading*.
 
 #### Reflection Subscriber-2
