@@ -77,7 +77,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✓] Commit: `Implement receive function in Notification controller.`
     -   [✓] Commit: `Implement list_messages function in Notification service.`
     -   [✓] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [✓] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -89,3 +89,6 @@ This is the place for you to write reflections:
 2. `lazy_static` digunakan agar inisiasi variabel statis tidak dilakukan pada saat program dimulai, melainkan pada saat variabel tersebut dibutuhkan sehingga variabel akan diinisiasi saat *runtime*. Secara default, variabel statis ataupun non statis pada Rust bersifat *immutable* karena alasan *thread safety* saat melakukan *multi threading*.
 
 #### Reflection Subscriber-2
+1. Berkas `lib.rs` berisi informasi yang diperlukan oleh bagian-bagian pada aplikasi lainnya, seperti Error Response, *root* URL,  dan *singleton* dari App Configuration.
+2. Penambahan Subscriber menjadi lebih mudah dengan menggunakan pola *observer* karena kode untuk Publisher dan Subscriber telah dipisah, sehingga Subscriber dapat ditambahkan tanpa memengaruhi kode Publisher. Selain itu, instansiasi lebih dari satu Main App tetap dapat dilakukan karena hanya memerlukan proses pendaftaran Subscriber pada aplikasi yang berbeda dengan cara mengakses API yang sesuai.
+3. Testing atau Collection Postman sangat berguna. Dengan adanya fitur tersebut, kebenaran program dapat diketahui. Collection Postman juga membantu dalam memverifikasi apakah program mengirimkan respons dan berjalan sesuai dengan harapan karena menggunakan data asli pada aplikasi.
